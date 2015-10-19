@@ -10,7 +10,6 @@ public class UserServiceTest {
 
     @Test
     public void testGetUser() throws Exception {
-
-
+		//xxxxxxxxxxxxxxxxxxxx
     }
 }
