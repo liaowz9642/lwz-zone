@@ -19,7 +19,7 @@ public class Article extends Domain {
 
     @ManyToOne(cascade={CascadeType.MERGE})
     @JoinColumn
-    private User user;
+    private User user;  
 
     public String getTitle() {
         return title;
