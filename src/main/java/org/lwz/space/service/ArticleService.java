@@ -13,4 +13,7 @@ public interface ArticleService {
     void delete(Article article);
     List<Article> list();
     void update(Article article);
+
+
+
 }

@@ -44,4 +44,13 @@ public class UserDaoImpl implements UserDao {
     public void update(User user) {
         this.sessionFactory.getCurrentSession().update(user);
     }
+
+    @Override
+    public User getUser(String userName, String password) {
+        Query query = this.sessionFactory.getCurrentSession()
+                .createQuery("FROM User where userName = :userName and password=:password");
+        query.setParameter("userName", userName);
+        query.setParameter("password", password);
+        return (User) query.uniqueResult();
+    }
 }

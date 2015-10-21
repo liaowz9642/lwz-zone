@@ -17,9 +17,13 @@ public class Article extends Domain {
     @Column(nullable = false)
     private String content;
 
-    @ManyToOne(cascade={CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn
-    private User user;  
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false)
+    private ArticleType articleType;
 
     public String getTitle() {
         return title;
@@ -43,5 +47,13 @@ public class Article extends Domain {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public ArticleType getArticleType() {
+        return articleType;
+    }
+
+    public void setArticleType(ArticleType articleType) {
+        this.articleType = articleType;
     }
 }

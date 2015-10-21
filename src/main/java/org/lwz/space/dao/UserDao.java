@@ -14,7 +14,7 @@ public interface UserDao {
     List<User> list();
     void update(User user);
 
-//    User getUser(String userName, String password);
+    User getUser(String userName, String password);
 
 
 }

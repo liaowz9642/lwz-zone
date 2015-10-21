@@ -2,7 +2,6 @@ package org.lwz.space.service.impl;
 
 import org.junit.Test;
 import org.lwz.space.model.Article;
-import org.lwz.space.model.ArticleType;
 import org.lwz.space.model.User;
 import org.lwz.space.service.ArticleService;
 import org.lwz.space.service.UserService;
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  * Created by Liaowz on 2015/10/18.
  */
-public class ArticleServiceImplTest {
+public class ArticleTypeServiceImplTest {
 
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{
             "classpath:applicationContext.xml"
@@ -25,26 +24,19 @@ public class ArticleServiceImplTest {
 
 
     @Test
-    public void ArticleSaveTest(){
+    public void ArticleTypeSaveTest(){
 
-//        UserService userService = applicationContext.getBean("userService", UserService.class);
-//        List<User> userList = userService.list();
-//        User user =  userList.get(0);
-//        System.out.println(user);
+        UserService userService = applicationContext.getBean("userService", UserService.class);
+        List<User> userList = userService.list();
+        User user =  userList.get(0);
+        System.out.println(user);
 
         ArticleService articleService = applicationContext.getBean("ArticleService", ArticleService.class);
-
-        User user = new User("liaowz", "lwz4688560");
-        ArticleType articleType = new ArticleType();
-        articleType.setName("Java");
-
         Article article = new Article();
         article.setTitle("中文");
         article.setContent("這噢乖我");
 
         article.setUser(user);
-        article.setArticleType(articleType);
-
         articleService.save(article);
     }
 
@@ -57,8 +49,16 @@ public class ArticleServiceImplTest {
     }
 
 
-    @Test
 
+
+
+
+
+
+
+
+
+    @Test
     public void test(){
         System.out.println("Default Charset=" + Charset.defaultCharset());
         System.out.println("file.encoding=" + System.getProperty("file.encoding"));
